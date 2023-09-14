@@ -1,18 +1,29 @@
 import { TCardsActions } from "../actions/card";
-import { GET_CARDS_FAILED, GET_CARDS_REQUEST, GET_CARDS_SUCCESS } from "../actions/consts";
+import {
+  GET_CARDS_FAILED,
+  GET_CARDS_REQUEST,
+  GET_CARDS_SUCCESS,
+} from "../actions/consts";
 import { TCard } from "../types";
 
-
 export type TCardsState = {
-  items: ReadonlyArray<TCard>;
-  itemsRequest: boolean;
-  itemsFailed: boolean;
+  data: {
+    count: number;
+    entries: Array<TCard>;
+  };
+  dataRequest: boolean;
+  dataFailed: boolean;
+  dataSuccess: boolean;
 };
 
 const cardsInitialState: TCardsState = {
-  items: [],
-  itemsRequest: true,
-  itemsFailed: false,
+  data: {
+    count: 0,
+    entries: [],
+  },
+  dataRequest: false,
+  dataFailed: false,
+  dataSuccess: false,
 };
 
 export const cardsReducer = (
@@ -23,31 +34,34 @@ export const cardsReducer = (
     case GET_CARDS_REQUEST: {
       return {
         ...state,
-        itemsRequest: true,
+        dataRequest: true,
+        dataFailed: false,
+        dataSuccess: false,
       };
     }
 
     case GET_CARDS_SUCCESS: {
-    //   const itemsCatalog: TIngredientCatalog = {};
-    //   action.items.forEach((item) => {
-    //     itemsCatalog[item._id] = { ...item };
-    //   });
-
       return {
         ...state,
-        // itemsFailed: false,
-        // items: action.items,
-        // itemsCatalog: itemsCatalog,
-        // itemsRequest: false,
+        dataFailed: false,
+        data: {
+          count: action.items.count,
+          entries: action.items.entries.map((val) => {
+            return { ...val, isLiked: false };
+          }),
+        },
+        dataSuccess: true,
+        dataRequest: false,
       };
     }
 
     case GET_CARDS_FAILED: {
       return {
         ...state,
-        itemsFailed: true,
-        itemsRequest: false,
-        items: [],
+        dataFailed: true,
+        dataRequest: false,
+        dataSuccess: false,
+        data: { count: 0, entries: [] },
       };
     }
 

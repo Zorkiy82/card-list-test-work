@@ -1,5 +1,10 @@
 export type TCard = {
-    title: string;
-    description: string;
-    image: string;
-}
+  API: string,
+  Description: string,
+  Auth: string,
+  HTTPS: boolean,
+  Cors: "yes"|"no";
+  Link: string,
+  Category: string,
+  isLiked?: boolean,
+};
