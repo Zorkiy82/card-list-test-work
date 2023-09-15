@@ -1,10 +1,20 @@
+export type TRequestCardData = {
+  API: string;
+  Description: string;
+  Auth: string;
+  HTTPS: boolean;
+  Cors: "yes" | "no";
+  Link: string;
+  Category: string;
+};
+
 export type TCard = {
-  API: string,
-  Description: string,
-  Auth: string,
-  HTTPS: boolean,
-  Cors: "yes"|"no";
-  Link: string,
-  Category: string,
-  isLiked?: boolean,
+  api: string;
+  description: string;
+  auth: string;
+  https: boolean;
+  cors: "yes" | "no";
+  link: string;
+  category: string;
+  isLike: boolean;
 };

@@ -9,13 +9,15 @@ import { getCardsData } from "./services/actions/card";
 
 const App = () => {
   const dispatch = useDispatch();
-  const { dataRequest, dataSuccess, dataFailed } = useSelector((state) => state.cards);
+  const { dataRequest, dataSuccess, dataFailed } = useSelector(
+    (state) => state.cards
+  );
 
   useEffect(() => {
     if (!dataRequest && !dataSuccess && !dataFailed) {
       dispatch(getCardsData());
     }
-  }, [dataRequest,dataSuccess,dataFailed, dispatch]);
+  }, [dataRequest, dataSuccess, dataFailed, dispatch]);
   return (
     <>
       <Header />

@@ -1,0 +1,87 @@
+.card {
+  position: relative;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+  min-height: max-content;
+  min-width: 280px;
+  margin: 0 auto;
+  border-radius: 10px;
+  background-color: rgba(242, 224, 137, 0.4);
+  box-shadow: 1px 3px 3px 0px rgba(87, 76, 211, 0.13);
+  padding-bottom: 45px;
+}
+
+.likeButton {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-size: contain;
+  background-position: center;
+}
+
+.likeButton:hover {
+  scale: 1.1;
+}
+
+.characteristics {
+  padding-left: 40px;
+}
+
+.characteristics p {
+  font-weight: lighter;
+}
+
+.characteristics span {
+  font-weight: normal;
+}
+
+.deleteButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-image: url(../../images/recycle-icon.svg);
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-size: contain;
+  background-position: center;
+}
+
+.deleteButton:hover {
+  scale: 1.05;
+}
+
+.image {
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.subtitle {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.link {
+  text-decoration: none;
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.link:hover {
+  font-weight: bold;
+}
